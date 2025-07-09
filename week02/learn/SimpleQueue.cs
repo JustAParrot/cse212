@@ -63,11 +63,12 @@
     /// <exception cref="IndexOutOfRangeException">If queue is empty</exception>
     /// <returns>First integer in the queue</returns>
     private int Dequeue() {
-        if (_queue.Count <= 0)
-            throw new IndexOutOfRangeException();
+    if (_queue.Count <= 0)
+        throw new IndexOutOfRangeException(); 
 
-        var value = _queue[1];
-        _queue.RemoveAt(1);
-        return value;
-    }
+    var lastIndex = _queue.Count - 1;
+    var value = _queue[lastIndex];
+    _queue.RemoveAt(lastIndex);
+    return value;
+}
 }
